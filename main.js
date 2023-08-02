@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
             source: vectorSource,
             type: currentDrawType
         });
-        map.addInteraction(draw);
+        map.addInteraction(draw); ilkj
 
         // Çizim tamamlandığında çalışacak işlevi tanımlayın
         draw.on('drawend', function (event) {
