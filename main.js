@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     map.addOverlay(overlay);
 
-
     // "Parseli Kaydet" düğmesine basıldığında popup'ı kapatın ve değişiklikleri kaydedin
     const saveButton = document.getElementById('save-button');
     saveButton.addEventListener('click', function () {
@@ -78,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             source: vectorSource,
             type: currentDrawType
         });
-        map.addInteraction(draw); ilkj
+        map.addInteraction(draw);
 
         // Çizim tamamlandığında çalışacak işlevi tanımlayın
         draw.on('drawend', function (event) {
@@ -87,7 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const extent = geometry.getExtent();
             const center = ol.extent.getCenter(extent);
 
-            const konum = format.writeFeatures(feature, { featureProjection: 'EPSG:3857' })
+            // Çizimin koordinatlarını WKT formatında alın
+            const wkt = format.writeGeometry(geometry, { dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857' });
+
+            // WKT formatındaki koordinatları konsola yazdırın
+            console.log('Çizim Koordinatları (WKT formatında):', wkt);
+
             // Popup içeriğini güncelleyin
             const popupContent = document.getElementById('popup-content');
             if (popupContent) {
