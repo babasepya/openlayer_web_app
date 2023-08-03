@@ -1,3 +1,26 @@
+
+function getData() {
+    $.ajax({
+        url: 'http://localhost:5066/api/Products/getall', // Örnek bir API URL'i
+        method: 'GET',
+        dataType: 'json',
+        data: {
+            Product: 'product'
+        },
+        success: function (result) {
+            console.log(JSON.stringify(result)); // Veri yapısını konsola yazdırın
+            var veriGosterDiv = document.getElementById("veriGoster");
+            // Verilere uygun bir şekilde erişip gösterin
+            // Örneğin, veri bir dizi içinde geliyorsa: veriGosterDiv.innerHTML = "Alınan veri: " + result[0].message;
+            // veya veri bir nesne içinde geliyorsa: veriGosterDiv.innerHTML = "Alınan veri: " + result.message;
+        },
+        error: function (xhr, status, error) {
+            // Hata durumunda yapılacak işlemler
+            console.log("Hata: " + error);
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     // Harita nesnesini oluşturun
     const map = new ol.Map({
@@ -107,6 +130,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+
 
     createDrawInteraction(); // İlk çizim işlemini oluşturun
 

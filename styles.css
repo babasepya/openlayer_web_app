@@ -11,7 +11,7 @@ h2 {
     margin: 10px 0;
     position: absolute;
     /* Çizim türü seçim kutusunu belirli bir konumda konumlandırmak için */
-    bottom: 275px;
+    bottom: 250px;
     /* Alt kenardan 10 piksel yukarıda */
     left: 10px;
     /* Sol kenardan 10 piksel sağda */
@@ -23,9 +23,33 @@ select {
     margin: 10px 0;
     position: absolute;
     /* Çizim türü seçim kutusunu belirli bir konumda konumlandırmak için */
-    bottom: 280px;
+    bottom: 255px;
     /* Alt kenardan 10 piksel yukarıda */
     left: 225px;
+    /* Sol kenardan 10 piksel sağda */
+    z-index: 1;
+    /* Çizim türü seçim kutusunu haritanın üzerine çıkarmak için */
+}
+
+h1 {
+    margin: 10px 0;
+    position: absolute;
+    /* Çizim türü seçim kutusunu belirli bir konumda konumlandırmak için */
+    bottom: 200px;
+    /* Alt kenardan 10 piksel yukarıda */
+    left: 10px;
+    /* Sol kenardan 10 piksel sağda */
+    z-index: 1;
+    /* Çizim türü seçim kutusunu haritanın üzerine çıkarmak için */
+}
+
+veributton {
+    margin: 10px 0;
+    position: absolute;
+    /* Çizim türü seçim kutusunu belirli bir konumda konumlandırmak için */
+    bottom: 180px;
+    /* Alt kenardan 10 piksel yukarıda */
+    left: 10px;
     /* Sol kenardan 10 piksel sağda */
     z-index: 1;
     /* Çizim türü seçim kutusunu haritanın üzerine çıkarmak için */
