@@ -44,7 +44,6 @@
             border: 1px solid black;
             min-width: 100px;
             display: none;
-            /* Popup'ı başlangıçta gizleyin */
         }
 
         .ol-popup:after {
@@ -60,11 +59,6 @@
     </style>
 </head>
 
-<head>
-    <title>AJAX Örneği</title>
-</head>
-
-
 <body>
     <h2>Çizim Türünü Seçin:</h2>
     <select id="draw-type">
@@ -73,42 +67,71 @@
         <option value="LineString">LineString</option>
     </select>
 
-
     <div id="map" class="map"></div>
-    <button id="zoom-out">Zoom out</button>
-    <button id="zoom-in">Zoom in</button>
 
     <div id="popup" class="ol-popup">
         <a href="#" id="popup-closer" class="ol-popup-closer"></a>
         <div id="popup-content">
             <label for="city">Şehir:</label>
-            <input type="text" id="city" name="city" value="Şehir adı">
+            <input id="city" name="city" placeholder="Şehir adı">
             <br>
             <label for="district">İlçe:</label>
-            <input type="text" id="district" name="district" value="İlçe adı">
+            <input type="text" id="district" name="district" placeholder="İlçe adı">
             <br>
             <label for="neighborhood">Mahalle:</label>
-            <input type="text" id="neighborhood" name="neighborhood" value="Mahalle adı">
+            <input type="text" id="neighborhood" name="neighborhood" placeholder="Mahalle adı">
             <br>
-            <button id="save-button">Parseli Kaydet</button>
+            <button onclick="sendData()" id="save-button">Parseli Kaydet</button>
         </div>
     </div>
 
-    <body>
-        <h1>AJAX Örneği</h1>
-        <button onclick="getData()">Veri Al</button>
-        <div id="veriGoster"></div>
+    <input type="string" id="roundedWkt" name="roundedWkt">
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    </body>
+    <div id="veriGoster">
+        <table>
+            <tr>
+                <th>Parsel İl</th>
+                <th>Parsel İlçe</th>
+                <th>Parsel Mahalle</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <!-- Örnek satırlar, veritabanından alacağınız verilere göre değiştirin -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button onclick="editParcel(1)" id="editbutton">Edit</button></td>
+                <td><button onclick="deleteParcel(1)" id="deletebutton">Delete</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button onclick="editParcel(2)" id="editbutton">Edit</button></td>
+                <td><button onclick="deleteParcel(2)" id="deletebutton">Delete</button></td>
+            </tr>
+            <!-- Yeni parsel ekleyince buraya satır ekleyin -->
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="main.js"></script>
+
+    <script>
+        function editParcel(parcelId) {
+            console.log("Edit butonuna basıldı. Parsel ID: " + parcelId);
+            // Burada parsel düzenleme işlemleri yapabilirsiniz
+        }
+
+        function deleteParcel(parcelId) {
+            console.log("Delete butonuna basıldı. Parsel ID: " + parcelId);
+            // Burada parsel silme işlemleri yapabilirsiniz
+        }
+
+        // getData işlevini çağırıyoruz
+        getData();
+    </script>
 </body>
-
-
-
-
-</html>
-
-
 
 </html>
